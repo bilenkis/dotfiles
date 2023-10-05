@@ -64,3 +64,14 @@ module "packages" {
 }
 EOF
 }
+
+generate "os" {
+  path      = "os.generated.tf"
+  if_exists = "overwrite_terragrunt"
+
+  contents = <<EOF
+module "packages" {
+  source = "../modules/terraform/os"
+}
+EOF
+}
