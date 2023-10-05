@@ -24,13 +24,15 @@ resource "installer_brew" "work_tap" {
 }
 
 resource "installer_brew" "packages" {
-  for_each = toset(var.packages.brew)
-  name     = each.key
+  for_each   = toset(var.packages.brew)
+  name       = each.key
+  depends_on = [installer_brew.tap]
 }
 
 resource "installer_brew" "work_packages" {
   for_each = toset(var.work_packages.brew)
   name     = each.key
+  depends_on = [installer_brew.work_tap]
 }
 
 resource "installer_brew" "cask" {
