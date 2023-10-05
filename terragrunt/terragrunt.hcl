@@ -11,6 +11,27 @@ terraform {
 EOF
 }
 
+generate "terraform" {
+  path      = "terraform.generated.tf"
+  if_exists = "overwrite_terragrunt"
+
+  contents = <<EOF
+terraform {
+  required_version = ">= 1.5.1"
+  required_providers {
+    installer = {
+      source  = "shihanng/installer"
+      version = "0.6.1"
+    }
+    external = {
+      source  = "hashicorp/external"
+      version = "2.3.1"
+    }
+  }
+}
+EOF
+}
+
 generate "variables" {
   path      = "variables.generated.tf"
   if_exists = "overwrite_terragrunt"
@@ -27,6 +48,19 @@ variable "work_packages" {
     brew = []
     cask = []
   }
+}
+EOF
+}
+
+generate "packages" {
+  path      = "packages.generated.tf"
+  if_exists = "overwrite_terragrunt"
+
+  contents = <<EOF
+module "packages" {
+  source = "../modules/terraform/brew"
+  packages = var.packages
+  work_packages = var.work_packages
 }
 EOF
 }
