@@ -1,8 +1,6 @@
 packages = {
   tap = [
     # "homebrew/core",
-    "homebrew/cask-fonts",
-    "johanhaleby/kubetail",
     "goreleaser/tap/goreleaser",
   ]
   brew = [
@@ -36,7 +34,7 @@ packages = {
     "reattach-to-user-namespace",
     "kubectl",
     "kubectx",
-    "kubetail",
+    "johanhaleby/kubetail/kubetail",
     "subnetcalc",
     "iproute2mac",
     "tree",
@@ -74,7 +72,7 @@ packages = {
     "gh",
     "derailed/k9s/k9s",
     "node", // Needed for Github Copilot
-    "font-hack-nerd-font",
+    "homebrew/cask-fonts/font-hack-nerd-font",
   ]
   cask = [
     "raycast",
