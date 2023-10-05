@@ -6,7 +6,8 @@ PYTHON_VERSION="3.11.3"
 #xcode-select --install
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
-brew install terragrunt
+brew install terragrunt warrensbox/tap/tfswitch
+
 #brew install zsh pyenv pyenv-virtualenv
 #pyenv install $PYTHON_VERSION
 # pyenv global $PYTHON_VERSION
