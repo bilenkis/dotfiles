@@ -1,7 +1,4 @@
 packages = {
-  tap = [
-    "goreleaser/tap/goreleaser",
-  ]
   brew = [
     "bash",
     "coreutils",
@@ -72,6 +69,7 @@ packages = {
     "derailed/k9s/k9s",
     "node", // Needed for Github Copilot
     "homebrew/cask-fonts/font-hack-nerd-font",
+    "goreleaser/tap/goreleaser",
   ]
   cask = [
     "raycast",
@@ -86,7 +84,6 @@ packages = {
 }
 
 work_packages = {
-  tap = []
   brew = [
     "drone/drone/drone",
     "saml2aws",

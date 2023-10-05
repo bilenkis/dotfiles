@@ -1,5 +1,4 @@
 terraform {
-  # required_version = "~> 1.1.4"
   required_version = ">= 1.5.1"
   required_providers {
     installer = {
@@ -13,26 +12,14 @@ terraform {
   }
 }
 
-resource "installer_brew" "tap" {
-  for_each = toset(var.packages.tap)
-  name     = each.key
-}
-
-resource "installer_brew" "work_tap" {
-  for_each = toset(var.work_packages.tap)
-  name     = each.key
-}
-
 resource "installer_brew" "packages" {
-  for_each   = toset(var.packages.brew)
-  name       = each.key
-  depends_on = [installer_brew.tap]
+  for_each = toset(var.packages.brew)
+  name     = each.key
 }
 
 resource "installer_brew" "work_packages" {
   for_each = toset(var.work_packages.brew)
   name     = each.key
-  depends_on = [installer_brew.work_tap]
 }
 
 resource "installer_brew" "cask" {
