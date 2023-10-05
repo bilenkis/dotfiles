@@ -13,16 +13,6 @@ terraform {
   }
 }
 
-resource "installer_brew" "packages" {
-  for_each = toset(var.packages.brew)
-  name     = each.key
-}
-
-resource "installer_brew" "work_packages" {
-  for_each = toset(var.work_packages.brew)
-  name     = each.key
-}
-
 resource "installer_brew" "tap" {
   for_each = toset(var.packages.tap)
   name     = each.key
@@ -30,6 +20,16 @@ resource "installer_brew" "tap" {
 
 resource "installer_brew" "work_tap" {
   for_each = toset(var.work_packages.tap)
+  name     = each.key
+}
+
+resource "installer_brew" "packages" {
+  for_each = toset(var.packages.brew)
+  name     = each.key
+}
+
+resource "installer_brew" "work_packages" {
+  for_each = toset(var.work_packages.brew)
   name     = each.key
 }
 
