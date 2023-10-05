@@ -1,6 +1,5 @@
 packages = {
   tap = [
-    # "homebrew/core",
     "goreleaser/tap/goreleaser",
   ]
   brew = [
@@ -87,11 +86,9 @@ packages = {
 }
 
 work_packages = {
-  tap = [
-    "drone/drone", # work
-  ]
+  tap = []
   brew = [
-    "drone",
+    "drone/drone/drone",
     "saml2aws",
     "jsonnet-bundler",
     "go-jsonnet",
